@@ -11,7 +11,7 @@ while True:
             keyboard.send('volume up')
         elif incoming_data == 'volume_down':
             keyboard.send('volume down')
-        elif incoming_data == 'stop':
+        elif incoming_data == 'play_pause':
             keyboard.send("play/pause media")
         elif incoming_data == 'next_track':
             keyboard.send("next track")
