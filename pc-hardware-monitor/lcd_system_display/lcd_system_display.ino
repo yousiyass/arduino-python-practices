@@ -13,19 +13,19 @@ void setup() {
 
 void loop() {
   if (Serial.available() > 0) {
-    String gelen_veri = Serial.readStringUntil('\n');
+    String incoming_data = Serial.readStringUntil('\n');
 
-    //CPU BULMA
-    int basla1 = gelen_veri.indexOf("CPU:%") + 5;
-    int bitir1 = gelen_veri.indexOf("GPU:") - 2;
-    String birlestir1 = gelen_veri.substring(basla1, bitir1);
-    int cpu = birlestir1.toInt();
+    //CPU Discovery
+    int start1 = incoming_data.indexOf("CPU:%") + 5;
+    int finish1 = incoming_data.indexOf("GPU:") - 2;
+    String merge1 = incoming_data.substring(start1, finish1);
+    int cpu = merge1.toInt();
 
-    //GPU BULMA
-    int basla2 = gelen_veri.indexOf("GPU:") + 4;
-    int bitir2 = gelen_veri.indexOf("C") - 1;
-    String birlestir2 = gelen_veri.substring(basla2, bitir2);
-    int gpu = birlestir2.toInt();
+    //GPU Discovery
+    int start2 = incoming_data.indexOf("GPU:") + 4;
+    int finish2 = incoming_data.indexOf("C") - 1;
+    String merge2 = incoming_data.substring(start2, finish2);
+    int gpu = merge2.toInt();
 
 
     lcd.setCursor(0, 0);
