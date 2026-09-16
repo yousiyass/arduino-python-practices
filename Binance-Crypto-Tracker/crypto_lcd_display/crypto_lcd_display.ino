@@ -16,21 +16,21 @@ void setup() {
 
 void loop() {
   if(Serial.available() > 0) {
-    String gelen_veri = Serial.readStringUntil('\n');
-    gelen_veri.trim();
+    String incoming_data = Serial.readStringUntil('\n');
+    incoming_data.trim();
 
-    int iki_nokta = gelen_veri.indexOf(":");
-    String coin_adi = gelen_veri.substring(0,iki_nokta);
-    String coin_fiyati = gelen_veri.substring(iki_nokta+1);
+    int colon = incoming_data.indexOf(":");
+    String coin_name = incoming_data.substring(0,colon);
+    String coin_price = incoming_data.substring(colon+1);
 
     
     lcd.clear();
     tone(BUZZER_PIN, 2000, 50);
     lcd.setCursor(0, 0);
-    lcd.print(coin_adi);
+    lcd.print(coin_name);
     lcd.print(":  ");
     lcd.setCursor(0,1);
     lcd.print("     ");
-    lcd.print(coin_fiyati);
+    lcd.print(coin_price);
   }
 }
