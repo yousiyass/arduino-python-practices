@@ -1,25 +1,25 @@
 #include <IRremote.hpp>
-#define IR_ALICI_PIN 11
+#define IR_RECEIVER_PIN 11
 
-String donustur(int x) {
-  if (x == 7) { return "SES_ARTIR"; };
-  if (x == 11) { return "SES_AZALT"; };
-  if (x == 104) { return "DURDUR"; };
-  if (x == 98) { return "ILERI"; };
-  if (x == 101) { return "GERI"; };
-  if (x == 15) { return "MUTE"; };
+String convert(int x) {
+  if (x == 7) { return "volume_up"; };
+  if (x == 11) { return "volume_down"; };
+  if (x == 104) { return "stop"; };
+  if (x == 98) { return "next_track"; };
+  if (x == 101) { return "prev_track"; };
+  if (x == 15) { return "mute"; };
 }
 
 void setup() {
   Serial.begin(9600);
 
-  IrReceiver.begin(IR_ALICI_PIN);
+  IrReceiver.begin(IR_RECEIVER_PIN);
 }
 
 void loop() {
 
   if (IrReceiver.decode()) {
-    String result = donustur(IrReceiver.decodedIRData.command);
+    String result = convert(IrReceiver.decodedIRData.command);
     Serial.println(result);
     delay(200);
   }
