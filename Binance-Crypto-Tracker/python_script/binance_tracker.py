@@ -2,7 +2,7 @@ import time
 import serial
 import requests
 
-ser = serial.Serial('COM5', 9600)
+ser = serial.Serial('COM10', 9600)
 
 url = 'https://api.binance.com/api/v3/ticker/price?symbol='
 
