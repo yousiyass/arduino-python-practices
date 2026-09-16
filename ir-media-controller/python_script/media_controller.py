@@ -5,19 +5,19 @@ ser = serial.Serial('COM10', 9600)
 
 while True:
     if (ser.in_waiting > 0):
-        gelen_veri = ser.readline().decode('utf-8').strip()
-        print(gelen_veri)
-        if gelen_veri == 'SES_ARTIR':
+        incoming_data = ser.readline().decode('utf-8').strip()
+        print(incoming_data)
+        if incoming_data == 'volume_up':
             keyboard.send('volume up')
-        elif gelen_veri == 'SES_AZALT':
+        elif incoming_data == 'volume_down':
             keyboard.send('volume down')
-        elif gelen_veri == 'DURDUR':
+        elif incoming_data == 'stop':
             keyboard.send("play/pause media")
-        elif gelen_veri == 'ILERI':
+        elif incoming_data == 'next_track':
             keyboard.send("next track")
-        elif gelen_veri == 'GERI':
+        elif incoming_data == 'prev_track':
             keyboard.send("previous track")
-        elif gelen_veri == 'MUTE':
+        elif incoming_data == 'mute':
             keyboard.send("volume mute")
         else:
             pass
