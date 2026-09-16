@@ -6,8 +6,8 @@
 This project is a hardware-software integration that tracks live cryptocurrency prices. A Python script runs on the PC to fetch real-time data (e.g., from Binance) and sends it via serial communication. The Arduino board receives this parsed data, triggers a buzzer notification, and displays the coin name and current price on an I2C LCD display.
 
 <p align="center">
-  <img src="./images/btc_test.jpeg" width="300">
-  <img src="./images/eth_test.jpeg" width="300">
+  <img src="./images/btc_test.jpeg" width="250">
+  <img src="./images/eth_test.jpeg" width="250">
 </p>
 
 ## Technologies Used
