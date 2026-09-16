@@ -8,26 +8,26 @@ url = 'https://api.binance.com/api/v3/ticker/price?symbol='
 
 while True:
     try:
-        coin = input("Coin girin (Örn: BTCUSDT):")
+        coin = input("Enter a coin (Örn: BTCUSDT):")
 
-        cevap = requests.get(url+coin)
+        reply = requests.get(url+coin)
 
-        if cevap.status_code == 200:
-            veri = cevap.json()
+        if reply.status_code == 200:
+            data = reply.json()
 
-            price = float(veri["price"])
+            price = float(data["price"])
 
             if coin == "BTCUSDT":
-                gonderilecek_veri = f"{coin}:{price:.2f}\n"
+                data_send = f"{coin}:{price:.2f}\n"
             else:
-                gonderilecek_veri = f"{coin}:{price:.3f}\n"
+                data_send = f"{coin}:{price:.3f}\n"
 
-            ser.write(gonderilecek_veri.encode())
+            ser.write(data_send.encode())
 
-            print(f"Gönderildi: {gonderilecek_veri.strip()}")
+            print(f"Sent: {data_send.strip()}")
 
         time.sleep(5)
 
     except Exception as e:
-        print("Bir hata oluştu, tekrar deneniyor:", e)
+        print("An error occurred; retrying:", e)
         time.sleep(5)
