@@ -9,8 +9,8 @@ while True:
     cpu = psutil.cpu_percent()
     gpu = GPUtil.getGPUs()[0].temperature
 
-    veri = f"CPU:%{cpu} GPU:{gpu}C\n"
+    data = f"CPU:%{cpu} GPU:{gpu}C\n"
 
-    ser.write(veri.encode())
+    ser.write(data.encode())
     time.sleep(2)
 
