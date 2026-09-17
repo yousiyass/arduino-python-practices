@@ -2,6 +2,12 @@
 
 This project is a smart safe lock system that demonstrates advanced hardware-software integration, two-way UART communication, and data persistence. It combines an Arduino-based physical access control interface with a Python-based security logging backend.
 
+<p align="center">
+  <img src="./images/true_test.jpeg" width="250">
+  <img src="./images/false_test.jpeg" width="250">
+  <img src="./images/locked_test.jpeg" width="250">
+</p>
+
 ### System Architecture
 
 The system is divided into two interdependent layers:
